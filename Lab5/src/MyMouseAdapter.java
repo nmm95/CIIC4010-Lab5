@@ -80,30 +80,40 @@ public class MyMouseAdapter extends MouseAdapter {
 							//On the left column and on the top row... do nothing
 						} else {
 							//On the grid other than on the left column and on the top row:
-						
-							
-							Color[] newColor = new Color[5];
-							newColor[0] = Color.YELLOW;
-							newColor[1] = Color.MAGENTA;
-							newColor[2] = Color.BLACK;
-							newColor[3] = new Color(0x964B00);//brown
-							newColor[4] = new Color(0xB57EDC);//lavender
-							
-						
-							if(newColor[generator.nextInt(5)].equals(newColor[generator.nextInt(5)])){
-							myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] = newColor[generator.nextInt(5)];				
-							myPanel.repaint();}
-							else{
-								do{myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] = newColor[generator.nextInt(5)];				
-								myPanel.repaint();	}
-								while(newColor[generator.nextInt(5)].equals(newColor[generator.nextInt(5)]) );
-							}
-					
-							
 
-						
-							
+
+							Color newColor = null;
+
+							do{	
+								switch (generator.nextInt(5)) {
+
+
+								case 0:
+									newColor = Color.YELLOW;
+									break;
+								case 1:
+									newColor = Color.MAGENTA;
+									break;
+								case 2:
+									newColor = Color.BLACK;
+									break;
+								case 3:
+									newColor = new Color(0x964B00);   //Brown (from http://simple.wikipedia.org/wiki/List_of_colors)
+									break;
+								case 4:
+									newColor = new Color(0xB57EDC);   //Lavender (from http://simple.wikipedia.org/wiki/List_of_colors)
+									break;
+								}
+
+								myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] = newColor;
+
+								myPanel.repaint();
+							} while(  );
 						}
+
+
+
+
 					}
 				}
 			}
